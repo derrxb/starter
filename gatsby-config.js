@@ -31,6 +31,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: 'gatsby-transformer-json',
+      options: {
+        typeName: 'json',
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `yaml`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
