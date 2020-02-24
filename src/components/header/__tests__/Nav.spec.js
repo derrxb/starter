@@ -1,7 +1,7 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
-import { cleanup, render, fireEvent } from 'react-testing-library';
+import { cleanup, render, fireEvent } from '@testing-library/react';
 import ReactModal from 'react-modal';
 import NavMobile from '../NavMobile';
 import NavLaptop from '../NavLaptop';
