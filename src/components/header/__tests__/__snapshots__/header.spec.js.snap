@@ -2,25 +2,25 @@
 
 exports[`Header Spec renders correctly 1`] = `
 <nav
-  className="sc-ifAKCX izVqPn"
+  className="sc-AxhUy iApyuV"
 >
   <a
-    className="sc-EHOje ffZhMT"
+    className="sc-AxgMl gwbOQj"
     href="/"
     nature="default"
   >
     
   </a>
   <div
-    className="sc-bZQynM iFlhOA"
+    className="sc-AxheI hpxKbE"
   >
     <a
       activeStyle={
         Object {
-          "textDecoration": "underline",
+          "borderBottom": "2px solid #444",
         }
       }
-      className="sc-bdVaJa cHnYwO"
+      className="sc-AxjAm dKppiv"
       data-testid="nav-link"
       href="/about"
       nature="default"
@@ -30,10 +30,10 @@ exports[`Header Spec renders correctly 1`] = `
     <a
       activeStyle={
         Object {
-          "textDecoration": "underline",
+          "borderBottom": "2px solid #444",
         }
       }
-      className="sc-bdVaJa cHnYwO"
+      className="sc-AxjAm dKppiv"
       data-testid="nav-link"
       href="/book"
       nature="default"
@@ -42,7 +42,7 @@ exports[`Header Spec renders correctly 1`] = `
     </a>
   </div>
   <button
-    className="sc-bwzfXH fewVcK"
+    className="sc-AxirZ cjPnhU"
     onClick={[Function]}
   >
     Menu

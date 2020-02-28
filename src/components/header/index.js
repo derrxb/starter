@@ -58,7 +58,7 @@ const Header = ({ siteTitle, links, nature, ...rest }) => (
           to={item.to}
           nature={nature}
           activeStyle={{
-            textDecoration: 'underline',
+            borderBottom: `2px solid ${nature === 'default' ? '#444' : 'white'}`,
           }}
         >
           {item.name}

@@ -22,7 +22,9 @@ describe('NavModal Specs', () => {
       },
     ];
 
-    const { getByTestId, getByText } = render(<NavMobile links={links} />);
+    const { getByTestId, getByText } = render(
+      <NavMobile links={links} nature="default" />
+    );
 
     // Act
     fireEvent.click(getByText(/menu/i));
