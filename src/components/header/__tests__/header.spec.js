@@ -5,6 +5,7 @@ import Header from '../index';
 describe('Header Spec', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<Header />).toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 });

@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-
 import Header from './header';
+import theme from '../utils/theme';
 
 const Wrapper = styled.div`
   margin: 0;
@@ -33,13 +33,15 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <Wrapper>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      <ThemeProvider theme={theme}>
+        <Wrapper>
+          <Header siteTitle={data.site.siteMetadata.title} />
 
-        <Body>{children}</Body>
+          <Body>{children}</Body>
 
-        <Footer>© 2018 Derrick Bol</Footer>
-      </Wrapper>
+          <Footer>© 2018 Derrick Bol</Footer>
+        </Wrapper>
+      </ThemeProvider>
     )}
   />
 );
