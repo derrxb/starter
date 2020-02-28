@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Media from '../shared/Media';
 import NavMobile from './NavMobile';
-import NavLaptop from './NavLaptop';
+import NavOption from './NavOption';
 
 const HeaderNav = styled.nav`
   margin: 0;
@@ -18,30 +18,72 @@ const HeaderNav = styled.nav`
   `};
 `;
 
-const SiteTitle = styled(Link)`
+const Title = styled(Link)`
   text-decoration: none;
-  color: #444;
+  font-family: 'Oswald';
+  color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   align-self: center;
-  font-weight: 700;
-  font-size: 1.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1em;
   margin-right: auto;
+  letter-spacing: 0.06em;
+
+  ${Media.greaterThan('bigMonitor')`
+    font-size: 2em;
+  `};
 `;
 
-const Header = ({ siteTitle }) => (
-  <HeaderNav>
-    <SiteTitle to="/">{siteTitle}</SiteTitle>
+const Links = styled.div`
+  margin-left: auto;
 
-    <NavMobile />
-    <NavLaptop />
+  ${Media.lessThan('laptop')`
+    display: none;
+  `};
+`;
+
+const Header = ({ siteTitle, links, nature, ...rest }) => (
+  <HeaderNav>
+    <Title to="/" nature={nature}>
+      {siteTitle}
+    </Title>
+
+    <Links>
+      {links.map(item => (
+        <NavOption
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...rest}
+          data-testid="nav-link"
+          key={`${item.name}`}
+          to={item.to}
+          nature={nature}
+          activeStyle={{
+            textDecoration: 'underline',
+          }}
+        >
+          {item.name}
+        </NavOption>
+      ))}
+    </Links>
+
+    <NavMobile links={links} nature={nature} />
   </HeaderNav>
 );
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  nature: PropTypes.oneOf(['default', 'fixed']),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 Header.defaultProps = {
   siteTitle: ``,
+  nature: 'default',
 };
 
 export default Header;

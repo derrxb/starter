@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Spring, config } from 'react-spring/renderprops.cjs';
 import Modal from 'react-modal';
 import Media from '../shared/Media';
-import { NavOption } from './NavLaptop';
+import NavOption from './NavOption';
 
 const MenuLauncher = styled.button`
   background: #ff9e00;
@@ -68,7 +69,7 @@ const ModalStyle = {
   },
 };
 
-const NavMobile = () => {
+const NavMobile = ({ links, nature, ...rest }) => {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
@@ -101,13 +102,19 @@ const NavMobile = () => {
                   <h4>Menu</h4>
                 </NavDropdownHeader>
 
-                <li>
-                  <NavOption to="/blog">Blog</NavOption>
-                </li>
-
-                <li>
-                  <NavOption to="/book">Book Session</NavOption>
-                </li>
+                {links.map(item => (
+                  <li key={`${item.name}-${item.to}`}>
+                    <NavOption
+                      // eslint-disable-next-line react/jsx-props-no-spreading
+                      {...rest}
+                      nature={nature}
+                      data-testid="modal-nav-link"
+                      to={item.to}
+                    >
+                      {item.name}
+                    </NavOption>
+                  </li>
+                ))}
               </NavDropdownWrapper>
             </Modal>
           )}
@@ -115,6 +122,16 @@ const NavMobile = () => {
       )}
     </>
   );
+};
+
+NavMobile.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  nature: PropTypes.string.isRequired,
 };
 
 export default NavMobile;

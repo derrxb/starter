@@ -2,35 +2,50 @@
 
 exports[`Header Spec renders correctly 1`] = `
 <nav
-  className="sc-EHOje jQwEIl"
+  className="sc-ifAKCX izVqPn"
 >
   <a
-    className="sc-bZQynM jxOFri"
+    className="sc-EHOje ffZhMT"
     href="/"
+    nature="default"
   >
     
   </a>
+  <div
+    className="sc-bZQynM iFlhOA"
+  >
+    <a
+      activeStyle={
+        Object {
+          "textDecoration": "underline",
+        }
+      }
+      className="sc-bdVaJa cHnYwO"
+      data-testid="nav-link"
+      href="/about"
+      nature="default"
+    >
+      About
+    </a>
+    <a
+      activeStyle={
+        Object {
+          "textDecoration": "underline",
+        }
+      }
+      className="sc-bdVaJa cHnYwO"
+      data-testid="nav-link"
+      href="/book"
+      nature="default"
+    >
+      Contact
+    </a>
+  </div>
   <button
-    className="sc-htpNat isqSXa"
+    className="sc-bwzfXH fewVcK"
     onClick={[Function]}
   >
     Menu
   </button>
-  <div
-    className="sc-bdVaJa iORtBj"
-  >
-    <a
-      className="sc-bwzfXH dVvytM"
-      href="/blog"
-    >
-      Blog
-    </a>
-    <a
-      className="sc-bwzfXH dVvytM"
-      href="/book"
-    >
-      Book Session
-    </a>
-  </div>
 </nav>
 `;
