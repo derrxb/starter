@@ -72,7 +72,7 @@ const NavMobile = () => {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
-    <React.Fragment>
+    <>
       <MenuLauncher onClick={() => setShowModal(!showModal)}>Menu</MenuLauncher>
       {showModal && (
         <Spring
@@ -113,7 +113,7 @@ const NavMobile = () => {
           )}
         </Spring>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
